@@ -21,13 +21,9 @@ public class User {
     String password;
     String email;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    Set<Role> roles;
+    @ManyToOne()
+    @JoinColumn(name = "role_id", nullable = false)
+    Role role;
 
     @OneToMany(mappedBy = "user")
     Set<Registration> registrations;

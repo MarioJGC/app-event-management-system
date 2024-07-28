@@ -19,6 +19,6 @@ public class Role {
 
     String name; // e.g., STUDENT, PROFESSOR, ADMIN
 
-    @ManyToMany(mappedBy = "roles")
+    @OneToMany(mappedBy = "role")
     Set<User> users;
 }
